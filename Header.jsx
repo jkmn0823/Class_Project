@@ -26,7 +26,7 @@ function Header({setId,setPassword,id,password,setOnlogin,onlogin}) {
       </div>
       <div className="Title">
         <h2>재고 관리 체계</h2>
-        <h4>{new Date().toDateString()}</h4>
+        <h4>{new Date().toLocaleDateString()}</h4>
       </div>
       <div className="titlebtn">
         {onlogin === 0 && <button onClick={openpage} className="button1 login">로그인</button>}
