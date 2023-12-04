@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "./css/Header.css"
+import "./Header.css"
 import Loginpage from "./Loginpage";
 
 function Header({setId,setPassword,id,password,setOnlogin,onlogin}) {
@@ -16,6 +16,7 @@ function Header({setId,setPassword,id,password,setOnlogin,onlogin}) {
     setOnlogin(0)
     setId("")
     setPassword("")
+    alert('로그아웃이 완료되었습니다.')
   }
 
   return (

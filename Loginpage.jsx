@@ -1,5 +1,5 @@
 import React from "react";
-import './css/Loginpage.css'
+import './Loginpage.css'
 
 function Loginpage({setOpenlog,setId,setPassword,id,password,setOnlogin}){
 
@@ -31,12 +31,17 @@ function Loginpage({setOpenlog,setId,setPassword,id,password,setOnlogin}){
       alert('아이디가 등록되어있지 않습니다.')
     }
   }
+  function onKeyPress(e) {
+    if (e.key === "Enter") {
+      CheckLogin();
+    }
+  }
   return(
     <div className="logcontainer">
       <h3>로그인</h3>
       <button className="close"onClick={closepage}>X</button>
       <input onChange={IdChange} placeholder="ID"/>
-      <input type="password"placeholder="PW" onChange={PwChange}/>
+      <input type="password"placeholder="PW" onChange={PwChange} onKeyPress={onKeyPress}/>
       <div className="login_button">
         <button onClick={CheckLogin}>로그인</button>
       </div>

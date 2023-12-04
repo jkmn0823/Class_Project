@@ -1,26 +1,50 @@
-import React,{useState} from "react";
-import "./css/Controller.css"
+import React from "react";
+import "./Controller.css";
+// import Coom0 from "./Coom0~5/Coom0";
+import Coom1 from "./Coom0~5/Coom1";
+import Coom2 from "./Coom0~5/Coom2";
+import Coom3 from "./Coom0~5/Coom3";
+import Coom4 from "./Coom0~5/Coom4";
 import Items from "./Items";
 
-function Controller({onlogin,CreateItem}){
-    const [openItem, setopenItem] = useState(false);
 
-    function itemClick(){
-        if(onlogin===1){
-            setopenItem(true)
-        }else{
-            alert('관리자 권한이 필요합니다.')
-        }
+function Controller({ onChangeNum }) {
+    
+    
+    function Change1(){
+        onChangeNum(<Items/>);
     }
+    
+    function Change2(){
+        onChangeNum(<Coom1/>);
+    }
+
+    function Change3(){
+        onChangeNum(<Coom2/>);
+    }
+
+    function Change4(){
+        onChangeNum(<Coom3/>);
+    }
+
+    function Change5(){
+        onChangeNum(<Coom4/>);
+    }
+
+    function Change6(){
+        onChangeNum(<Coom4/>);
+    }
+
+
     return(
         <div className="Controller">
-            <button className="button">Home</button>
-            <button className="button">게시판</button>
-            <button className="button" onClick={itemClick}>재고관리</button>
-            {openItem && <Items CreateItem={CreateItem} setopenItem={setopenItem}></Items>}
-            <button className="button">재고확인</button>
-            <button className="button">재고주문</button>
-            <button className="button">Help</button>
+            <button className="button" onClick={Change1}>Home</button>
+            <button className="button" onClick={Change2}>게시판</button>
+            <button className="button" onClick={Change3}>품목추가</button>
+            <button className="button" onClick={Change4}>품목관리</button>
+            <button className="button" onClick={Change5}>재고주문</button>
+            <button className="button" onClick={Change6}>Help</button>
+            {/* <p>현재 값 : {ChangeNum}</p> */}
         </div>
     )
 }

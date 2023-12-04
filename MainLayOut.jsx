@@ -1,20 +1,31 @@
 import React, {useState} from "react";
 import Controller from "./Controller";
-import "./css/MainLayOut.css"
+import "./MainLayOut.css"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Graph from "./Graph";
+import Coom0 from "./Coom0~5/Coom0";
+import Items from "./Items";
 
-function MainLayOut({CreateItem,onlogin}){
+function MainLayOut({CreateItem}){
     const [value, onChange] = useState(new Date());
+    const [ChangeNum,setChangeNum] = useState(Items) /*초기값을 Coom0컴포넌트로 지정*/
+
+
+    function handleNumChange(num){
+        setChangeNum(num)}
+    
     return(
         <div className="AllPage">
             <div className="LeftSelect">
                 <h4>메뉴</h4>
-                <Controller CreateItem={CreateItem} onlogin={onlogin}></Controller>
+                <Controller onChangeNum={handleNumChange} ></Controller>
             </div>
             <div className="MainPage">
+                
                 <div className="CommunityView">
+                    {ChangeNum}
+                    
                 </div>
                 <div className="Viewer">
                     <Calendar className="Calendar" onChange={onChange} value={value} />

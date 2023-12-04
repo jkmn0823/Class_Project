@@ -29,10 +29,6 @@
     display: flex;
     width: 1200px;
 }
-
-.CommunityView{
-    width: 730px;
-}
 .Viewer{
     margin-top: 35px;
     display: flex;
@@ -43,6 +39,11 @@
     margin-bottom: 20px;
 }
 
+.CommunityView{
+    width:750px;
+    text-align: center;
+    align-items: center;
+}
 
 
 
