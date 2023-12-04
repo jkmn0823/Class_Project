@@ -9,13 +9,14 @@ function App(){
     const [onlogin, setOnlogin] = useState(0);
     const [item, setItem] = useState([]);
     const itemNumber = useRef(0);
-    function CreateItem(number,itemname,type,count,price){
+    function CreateItem(itemname,type,count,price){
         const newItem = {
             number: itemNumber.current,
             itemname,
             type,
             count,
             price,
+            date : new Date().toLocaleTimeString()
         }
         setItem([newItem, ...item] )
         itemNumber.current += 1
@@ -32,7 +33,7 @@ function App(){
             setOnlogin={setOnlogin}   
             > 
             </Header>
-            <MainLayOut CreateItem={CreateItem}></MainLayOut>
+            <MainLayOut onlogin={onlogin} CreateItem={CreateItem}></MainLayOut>
         </div>
         </>
     )

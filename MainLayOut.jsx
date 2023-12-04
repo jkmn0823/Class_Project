@@ -4,19 +4,17 @@ import "./css/MainLayOut.css"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Graph from "./Graph";
-import Items from "./Items";
 
-function MainLayOut({CreateItem}){
+function MainLayOut({CreateItem,onlogin}){
     const [value, onChange] = useState(new Date());
     return(
         <div className="AllPage">
             <div className="LeftSelect">
                 <h4>메뉴</h4>
-                <Controller></Controller>
+                <Controller CreateItem={CreateItem} onlogin={onlogin}></Controller>
             </div>
             <div className="MainPage">
                 <div className="CommunityView">
-                    <Items CreateItem={CreateItem}></Items>
                 </div>
                 <div className="Viewer">
                     <Calendar className="Calendar" onChange={onChange} value={value} />

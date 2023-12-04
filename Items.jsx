@@ -1,7 +1,8 @@
 import React,{useState} from "react";
+import "./css/Items.css"
 
 
-function Items({CreateItem}){
+function Items({CreateItem,setopenItem}){
 
   const [itemname,setName] = useState("");
   const [type,setType] = useState("");
@@ -23,16 +24,22 @@ function Items({CreateItem}){
   function onSubmit(){
     CreateItem(itemname,type,count,price)
   }
+  function closeItem(){
+    setopenItem(false)
+  }
   return(
-    <div>
-      <input value={itemname} onChange={nameChange} type="text" />
-      <input value={type} onChange={typeChange} type="text" />
-      <input value={count} onChange={countChange} type="number" />
-      <input value={price} onChange={priceChange} type="number" />
-      <button onClick={onSubmit}>추가</button>
-      <br></br>
-
+    <div className="Itempage">
+      <div>
+        <button className="close" onClick={closeItem}>X</button><br></br>
+        <input value={itemname} onChange={nameChange} type="text" />
+        <input value={type} onChange={typeChange} type="text" />
+        <input value={count} onChange={countChange} type="number" />
+        <input value={price} onChange={priceChange} type="number" />
+        <button onClick={onSubmit}>추가</button>
+        <br></br>
+      </div>
     </div>
+    
   )
 }
 
